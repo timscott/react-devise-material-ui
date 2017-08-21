@@ -3,12 +3,13 @@ import {TextField, RaisedButton, FlatButton} from 'material-ui';
 
 const plugin = ({useFlatButton = false} = {}) => {
   const ButtonComponent = useFlatButton ? FlatButton : RaisedButton;
-  const SubmitButton = ({label, disabled}) => (
+  const SubmitButton = ({label, disabled, ...rest}) => (
     <ButtonComponent
       label={label}
       primary={true}
       type="submit"
       disabled={disabled}
+      {...rest}
     />
   );
   const renderInput = ({input, label, type = 'text', meta: {touched, error}, ...rest}) => (
